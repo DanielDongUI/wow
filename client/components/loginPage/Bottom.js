@@ -1,14 +1,16 @@
 import React from 'react';
-import SignupPage from './SignupPage'
 import { View , Text, StyleSheet, StatusBar, Image, Button, Dimensions,TouchableOpacity} from 'react-native'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { inLogIn, inSignUp, closeLogIn } from '../../actions/loginPageActions'
 
 class Bottom extends React.Component {
 
     pressLogin () {
-        alert('login')
+        inLogIn();
     }
     pressSignup () {
-        alert('signup')
+        inSignUp()
     }
     render(){
         return(
@@ -20,7 +22,7 @@ class Bottom extends React.Component {
                 </View> 
                 <View title="Sign Up" style={styles.box}  >
                     <TouchableOpacity style={styles.signUp} onPress={this.pressSignup} >
-                        <Text style={styles.signupText}>SIGN UP</Text>
+        <Text style={styles.signupText}>SIGN UP{this.props.loginPageStatus}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -89,11 +91,24 @@ const styles = StyleSheet.create({
         color: 'white',
         zIndex: 5,
     }
-
-
 }
 )
 
 
 
-export default Bottom; 
+const mapStatetoProps = state =>{
+    return {
+        loginPageStatus : state.statusList.loginPageStatus,
+    }
+}
+
+const mapDispatchToProps = dispatch =>
+        bindActionCreators({
+            inLogIn, 
+            inSignUp, 
+            closeLogIn, 
+        },dispatch)
+    
+
+
+export default connect(mapStatetoProps,mapDispatchToProps)(Bottom);

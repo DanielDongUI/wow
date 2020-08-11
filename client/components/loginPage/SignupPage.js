@@ -9,7 +9,10 @@ import { View,
     Image, 
     Button,
     TouchableOpacity, 
-    Dimensions} from 'react-native'
+    Dimensions} from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { inLogIn, inSignUp, closeLogIn } from '../../actions/loginPageActions'
 
 class SignupPage extends React.Component {
 
@@ -24,9 +27,13 @@ class SignupPage extends React.Component {
         alert("link with third party account")
     }
 
+    pressClose () {
+        this.props.closeLogIn();
+    }
+
     render(){
-        return(
-            <View style={styles.container}>
+        return(    
+            <View style={this.props.loginPageStatus === "signup" ? styles.container : {display: "none"}}>
                 <View style={styles.innerContainer} >
                     <View style={styles.innerWindows}>
                         <View style={styles.form}>
@@ -77,7 +84,7 @@ class SignupPage extends React.Component {
                             </TouchableOpacity>  
                             </View>  
                             <View style={styles.close}>
-                                <TouchableOpacity onPress={this.pressRef}>  
+                                <TouchableOpacity onPress={this.pressClose}>  
                                     <Image
                                         style={styles.closeIcon}
                                         source = {require('./close.png')}
@@ -86,7 +93,6 @@ class SignupPage extends React.Component {
                             </View> 
                         </View>    
                     </View>
-
                 </View>
             </View>
         )
@@ -189,5 +195,21 @@ const styles = StyleSheet.create({
 }
 )
 
+const mapStatetoProps = state =>{
+    return {
+        loginPageStatus : state.statusList.loginPageStatus,
+    }
+}
 
-export default SignupPage; 
+const mapDispatchToProps = dispatch =>
+        bindActionCreators({
+            inLogIn, 
+            inSignUp, 
+            closeLogIn, 
+        },dispatch)
+    
+
+
+export default connect(mapStatetoProps,mapDispatchToProps)(SignupPage);
+
+

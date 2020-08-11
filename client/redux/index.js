@@ -1,3 +1,3 @@
-export { removeFromMyList } from '../actions';
-export { addToMyList } from '../actions';
+export { inLogIn, inSignUp, closeLogIn } from '../actions/loginPageActions';
+
 
