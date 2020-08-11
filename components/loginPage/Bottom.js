@@ -1,24 +1,28 @@
 import React from 'react';
-import SignUp from './SignUp'
-import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions} from 'react-native'
+import SignupPage from './SignupPage'
+import { View , Text, StyleSheet, StatusBar, Image, Button, Dimensions,TouchableOpacity} from 'react-native'
 
 class Bottom extends React.Component {
 
+    pressLogin () {
+        alert('login')
+    }
+    pressSignup () {
+        alert('signup')
+    }
     render(){
-
         return(
             <View style={styles.container}>
-
-                    <View title="Log In" style={styles.box} >
-                        <View style={styles.login}>
-                            <Text style={styles.loginText}>LOG IN</Text>
-                        </View>
-                    </View>
-                    <View title="Sign Up" style={styles.box}>
-                        <View style={styles.signUp}>
-                            <Text style={styles.signupText}>SIGN UP</Text>
-                        </View>
-                    </View>
+                <View title="Log In" style={styles.box}>
+                    <TouchableOpacity style={styles.login} onPress={this.pressLogin}>  
+                    <Text style={styles.loginText}>LOG IN</Text>
+                    </TouchableOpacity> 
+                </View> 
+                <View title="Sign Up" style={styles.box}  >
+                    <TouchableOpacity style={styles.signUp} onPress={this.pressSignup} >
+                        <Text style={styles.signupText}>SIGN UP</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -28,10 +32,11 @@ const deviceWitdth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
     container:{
+        flex:1,
         top: deviceHeight * 0.85,
         width: '100%',
         height: deviceHeight * 0.12,
-        padding: 15,
+        padding: 12,
         flexDirection: 'row',
         flexWrap: 'wrap', 
         
@@ -39,7 +44,7 @@ const styles = StyleSheet.create({
     box:{
         width:'50%',
         height: deviceHeight*0.12,
-        padding:15, 
+        padding:12, 
     },
     login:{
         flex:1,
@@ -57,15 +62,20 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         borderRadius: 10,
     },
+
     loginText:{
+        
+        position:'absolute',
+
         fontFamily: 'Arial',
         fontStyle: 'normal',
         fontWeight: '900',
         fontSize: 13,
         lineHeight: 15,
         letterSpacing:0.004,
-        color: '#000',
+        color: 'black',
         zIndex: 5,
+      
     },
     signupText:{
         position:'absolute',

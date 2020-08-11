@@ -7,12 +7,16 @@ import { StatusBar } from 'expo-status-bar';
 import { View, Text } from 'react-native'
 import Login from './components/loginPage/Login'
 
+const store = createStore(reducer);
+
 export default class App extends React.Component {
   render() {
     return (
-      <View>
+      <Provider store={store}>
+        <View>
         <Login />
-      </View>
+        </View>
+        </Provider>
     )
   }
 }

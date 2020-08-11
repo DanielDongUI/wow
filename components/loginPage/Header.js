@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUp from './SignUp'
+import SignUp from './SignupPage'
 import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions} from 'react-native'
 
 class Header extends React.Component {
@@ -33,6 +33,7 @@ const deviceWitdth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
     header:{
+        flex:1,
         width: '100%',
         height: '85%',
 
