@@ -20,6 +20,10 @@ class SignupPage extends React.Component {
         confirmPassword:"",
     }
 
+    pressRef () {
+        alert("link with third party account")
+    }
+
     render(){
         return(
             <View style={styles.container}>
@@ -53,8 +57,33 @@ class SignupPage extends React.Component {
                                 <Text style={styles.text}>or</Text>
                             </View>
                             <View style={styles.ref}>
-
-                            </View>    
+                             <TouchableOpacity style={styles.icon} onPress={this.pressRef}>   
+                                <Image
+                                    style={styles.logo}
+                                    source = {require('./google.png')}
+                                /> 
+                            </TouchableOpacity>  
+                            <TouchableOpacity style={styles.icon} onPress={this.pressRef}>  
+                                <Image
+                                    style={styles.logo}
+                                    source = {require('./facebook.png')}
+                                /> 
+                            </TouchableOpacity>  
+                            <TouchableOpacity style={styles.icon} onPress={this.pressRef}>  
+                                <Image
+                                    style={styles.logo}
+                                    source = {require('./twitter.png')}
+                                /> 
+                            </TouchableOpacity>  
+                            </View>  
+                            <View style={styles.close}>
+                                <TouchableOpacity onPress={this.pressRef}>  
+                                    <Image
+                                        style={styles.closeIcon}
+                                        source = {require('./close.png')}
+                                    /> 
+                                </TouchableOpacity> 
+                            </View> 
                         </View>    
                     </View>
 
@@ -89,7 +118,7 @@ const styles = StyleSheet.create({
         width:deviceWitdth*0.7,
         height: deviceHeight *0.6,
         top: deviceHeight*0.05,
-        backgroundColor: 'rgba(251,195,145,0.4)',
+        //backgroundColor: 'rgba(251,195,145,0.4)',
         zIndex:9,
     },
     text:{
@@ -131,11 +160,31 @@ const styles = StyleSheet.create({
         zIndex: 5,
     },
     ref:{
-        width:deviceWitdth*0.7,
+        flex:1,
+        width: '100%',
         height: deviceHeight *0.05,
-        backgroundColor: 'rgba(251,195,145,0.4)',
+        //backgroundColor: 'rgba(251,195,145,0.4)',
         flexDirection: 'row',
         flexWrap: 'wrap', 
+    },
+    logo:{
+        width: 40,
+        height: 40,
+    },
+    icon:{
+        width:'33.33%',
+        //height: deviceHeight*0.12,
+        alignItems: 'center',
+    },
+    close:{
+        width:deviceWitdth*0.7,
+        height: deviceHeight *0.6,
+        top: deviceHeight *0.1,
+        alignItems: 'center',
+    },
+    closeIcon:{
+        width: 40,
+        height: 30,
     }
 }
 )
