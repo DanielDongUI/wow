@@ -6,11 +6,11 @@ import { inLogIn, inSignUp, closeLogIn } from '../../actions/loginPageActions'
 
 class Bottom extends React.Component {
 
-    pressLogin () {
-        inLogIn();
+    pressLogin = () =>{
+        this.props.inLogIn()
     }
-    pressSignup () {
-        inSignUp()
+    pressSignup = () => {
+        this.props.inSignUp()
     }
     render(){
         return(
@@ -22,7 +22,7 @@ class Bottom extends React.Component {
                 </View> 
                 <View title="Sign Up" style={styles.box}  >
                     <TouchableOpacity style={styles.signUp} onPress={this.pressSignup} >
-        <Text style={styles.signupText}>SIGN UP{this.props.loginPageStatus}</Text>
+        <Text style={styles.signupText}>SIGN UP</Text>
                     </TouchableOpacity>
                 </View>
             </View>

@@ -15,3 +15,8 @@ export const closeLogIn = ()=> ({
     type: 'CLOSE_LOG_IN',
     payload: ""
 })
+
+export const logedIn = (userId)=> ({
+    type: 'LOGED_IN',
+    payload: userId
+})

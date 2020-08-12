@@ -1,3 +1,3 @@
-export { inLogIn, inSignUp, closeLogIn } from '../actions/loginPageActions';
+export { inLogIn, inSignUp, closeLogIn, logedIn } from '../actions/loginPageActions';
 
 

@@ -1,20 +1,20 @@
 const initialState ={
     user:[{
         userName: "dong784500",
-        password: "dzp784500",
+        password: "Dzp784500",
         userId: "000001",
         email: "dong784500@hotmail.com",
         firstName: "Zhiping",
         lastName: "dong",
-        eventId: 1,
+        eventId: [1],
     },{
         userName: "yuanxinyang",
-        password: "dzp784500",
+        password: "Dzp784500",
         userId: "000002",
         email: "yuanxinyang@hotmail.com",
         firstName: "Xinyang",
         lastName: "Yuan",
-        eventId: 2,
+        eventId: [2,3],
     }
 ],
 }

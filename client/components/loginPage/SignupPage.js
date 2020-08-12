@@ -27,8 +27,9 @@ class SignupPage extends React.Component {
         alert("link with third party account")
     }
 
-    pressClose () {
-        this.props.closeLogIn();
+    
+    pressClose =()=> {
+        this.props.closeLogIn()
     }
 
     render(){
@@ -40,21 +41,25 @@ class SignupPage extends React.Component {
                             <Text style={styles.text}>Email</Text>
                             <TextInput 
                             value={this.state.email} 
+                            
                             onChangeText={text=>inputEmail(text)}
                             style={{ height: 40, borderColor: 'gray', borderWidth: 1, borderRadius:9,padding:5 }}/>
                             <Text style={styles.text}>User Name</Text>
                             <TextInput 
                             value={this.state.userName} 
+                            
                             onChangeText={text=>inputUserName(text)}
                             style={{ height: 40, borderColor: 'gray', borderWidth: 1, borderRadius:9,padding:5 }}/>
                             <Text style={styles.text}>Password</Text>
                             <TextInput 
                             value={this.state.password} 
+                            
                             onChangeText={text=>inputPW(text)}
                             style={{ height: 40, borderColor: 'gray', borderWidth: 1, borderRadius:9,padding:5 }}/>
                             <Text style={styles.text}>Confirm Password</Text>
                             <TextInput 
                             value={this.state.password} 
+                          
                             onChangeText={text=>inputCPW(text)}
                             style={{ height: 40, borderColor: 'gray', borderWidth: 1, borderRadius:9,padding:5 }}/>
                             <View style={styles.signupBtn}>

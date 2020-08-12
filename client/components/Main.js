@@ -1,15 +1,42 @@
 import React from 'react';
 import Login from './loginPage/Login'
-import { View } from 'react-native'
+import MainPage from './mainPage/MainPage'
+import { View, StyleSheet} from 'react-native'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Router, Scene } from 'react-native-router-flux'
+
 
 class Main extends React.Component {
 
     render(){
         return(
-            <View>
-                <Login />
-            </View>
+                <Router>
+                    <Scene key = "root">
+                        <Scene key = "Login" component = {Login} title = "Login" hideNavBar={true} initial />
+                        <Scene key = "MainPage" component = {MainPage} hideNavBar={true} title = "MainPage" />
+                    </Scene>
+                </Router>
         )
     }
 }
-export default Main; 
+
+const styles = StyleSheet.create({
+    container:{
+    }
+})
+const mapStatetoProps = state =>{
+    return {
+        loginPageStatus : state.statusList.loginPageStatus,
+        mainPageStatus : state.statusList.mainPageStatus,
+    }
+}
+
+const mapDispatchToProps = dispatch =>
+        bindActionCreators({
+
+        },dispatch)
+    
+
+
+export default connect(mapStatetoProps,mapDispatchToProps)(Main);
