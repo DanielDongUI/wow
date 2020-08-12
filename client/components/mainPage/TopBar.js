@@ -2,31 +2,13 @@ import React from 'react';
 import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import TopBar from './TopBar';
-import Footer from './Footer';
-import Discover from './Discover';
-import Collection from './Collection';
-import Create from './Create';
-import Search from './Search'
-import Profile from './Profile';
 
-
-
-
-
-
-class MainPage extends React.Component {
+class TopBar extends React.Component {
 
     render(){
         return(
-            <View style={this.props.loginPageStatus==="logedIn" ? styles.container : {display:'none'}}>
-                <TopBar />
-                <Discover />
-                <Collection />
-                <Create />
-                <Search />
-                <Profile />
-                <Footer />
+            <View style={ styles.container }>
+ 
             </View>
         )
     }
@@ -55,6 +37,4 @@ const mapDispatchToProps = dispatch =>
     
 
 
-export default connect(mapStatetoProps,mapDispatchToProps)(MainPage);
-
-
+export default connect(mapStatetoProps,mapDispatchToProps)(TopBar);

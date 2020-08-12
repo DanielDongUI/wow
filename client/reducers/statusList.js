@@ -1,8 +1,11 @@
 const initialState ={
-    loginPageStatus: "default", //defualt
-    mainPageStatus: "logedOut", //logedOut
+    loginPageStatus: "logedIn", //defualt
+    mainPageStatus: "default", //logedOut
+    currentPage: "Discover",
+    createPageStatus: "close",
     currentUser: null, 
 }
+
 
 
 const statusList = (state = initialState, action) =>{
@@ -34,7 +37,37 @@ const statusList = (state = initialState, action) =>{
             }
 
         //mainPage
+        case 'OPEN_CREATE' :
+            return {
+              ...state,
+              createPageStatus: "open",
+            }
+        case 'CLOSE_CREATE' :
+            return {
+              ...state,
+              createPageStatus: "close",
 
+            }
+        case 'PRESS_DISCOVER' :
+            return {
+              ...state,
+              currentPage: "Discover"
+            }
+        case 'PRESS_COLLECTION' :
+            return {
+              ...state,
+              currentPage: "Collection"
+            }
+        case 'PRESS_SEARCH' :
+            return {
+              ...state,
+              currentPage: "Search"
+            }
+        case 'PRESS_PROFILE' :
+            return {
+              ...state,
+              currentPage: "Profile"
+            }
         case 'LOGED_OUT' :
             return {
               ...state,
