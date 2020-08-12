@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "wow footer 3",
-    "slug": "wow-footer-3",
+    "name": "wow topbar 1",
+    "slug": "wow-topbar-1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

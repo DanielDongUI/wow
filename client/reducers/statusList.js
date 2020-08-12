@@ -1,9 +1,11 @@
 const initialState ={
     loginPageStatus: "logedIn", //defualt
     mainPageStatus: "default", //logedOut
-    currentPage: "Discover",
-    createPageStatus: "close",
-    currentUser: null, 
+    currentPage: "Discover", //Discover
+    createPageStatus: "close", //close
+    filterStatus: "close", //close
+    settingStatus:"close", //close
+    currentUser: null, //null
 }
 
 
@@ -74,6 +76,26 @@ const statusList = (state = initialState, action) =>{
               mainPageStatus: "logedOut",
               loginPageStatus: "default"
             }
+        case 'OPEN_FILTER' :
+            return {
+                ...state,
+                filterStatus : "open"
+            } 
+        case 'CLOSE_FILTER' :
+            return {
+                ...state,
+                filterStatus : "close"
+            }
+        case 'OPEN_SETTING' :
+            return {
+                ...state,
+                settingStatus : "open"
+            }
+        case 'CLOSE_SETTING' :
+            return {
+                ...state,
+                settingStatus : 'close'
+            }     
         default:
             return state
     }

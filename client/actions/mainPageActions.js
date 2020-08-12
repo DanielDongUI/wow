@@ -22,3 +22,19 @@ export const closeCreate = ()=> ({
     type: 'CLOSE_CREATE',
     payload: ""
 })
+export const openFilter = () => ({
+    type: 'OPEN_FILTER',
+    payload: ""
+})
+export const closeFilter = () => ({
+    type: 'CLOSE_FILTER',
+    payload: ""
+})
+export const openSetting = () => ({
+    type: 'OPEN_SETTING',
+    payload: ""
+})
+export const closeSetting = () => ({
+    type: 'CLOSE_SETTING',
+    payload: ""
+})

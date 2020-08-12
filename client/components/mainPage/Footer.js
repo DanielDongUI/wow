@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         padding: 5,
         flexDirection: 'row',
         flexWrap: 'wrap', 
-        
+        zIndex:10
     },
     box:{
         width:'20%',

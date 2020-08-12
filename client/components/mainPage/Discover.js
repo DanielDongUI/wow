@@ -9,7 +9,7 @@ class Discover extends React.Component {
         return(
             <View style={this.props.currentPage==="Discover" ? styles.container : {display:'none'}}>
                 <Text>Discover</Text>
-        <Text>{this.props.currentPage}</Text>
+                
             </View>
         )
     }
