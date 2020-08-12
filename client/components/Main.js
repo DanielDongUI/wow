@@ -4,19 +4,23 @@ import MainPage from './mainPage/MainPage'
 import { View, StyleSheet} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Router, Scene } from 'react-native-router-flux'
+import { Router, Scene, Actions } from 'react-native-router-flux'
 
 
 class Main extends React.Component {
 
     render(){
         return(
-                <Router>
-                    <Scene key = "root">
-                        <Scene key = "Login" component = {Login} title = "Login" hideNavBar={true} initial />
-                        <Scene key = "MainPage" component = {MainPage} hideNavBar={true} title = "MainPage" />
-                    </Scene>
-                </Router>
+            <View>
+                <Login />
+                <MainPage />
+            </View>
+                // <Router>
+                //     <Scene key = "root">
+                //         <Scene key = "Login" component = {Login} title = "Login" hideNavBar={true} initial />
+                //         <Scene key = "MainPage" component = {MainPage} hideNavBar={true} title = "MainPage" />
+                //     </Scene>
+                // </Router>
         )
     }
 }

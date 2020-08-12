@@ -9,7 +9,7 @@ class MainPage extends React.Component {
 
     render(){
         return(
-            <View style={styles.container}>
+            <View style={this.props.loginPageStatus==="logedIn" ? styles.container : {display:'none'}}>
                 <Text>Discover</Text>
                 <Text>Discover</Text>
                 <Text>Discover</Text>
@@ -26,7 +26,8 @@ const deviceHeight = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
     container:{
-        flex:1
+        
+        
     }
 }
 )

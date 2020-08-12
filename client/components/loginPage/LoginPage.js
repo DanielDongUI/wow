@@ -48,8 +48,7 @@ class LoginPage extends React.Component {
                     success=true;
                     this.props.logedIn(item.userId);
                     //console.log(Actions)
-                    Actions.MainPage()
-
+                    //Actions.MainPage()
                 }
             }
         })
@@ -65,7 +64,7 @@ class LoginPage extends React.Component {
 
 
     render(){
-        console.log("Actions  :"+Actions.MainPage)
+        //console.log("Actions  :" + Actions)
         return(    
             <View style={this.props.loginPageStatus === "login" ? styles.container : {display: "none"}}>
                 <View style={styles.innerContainer} >
@@ -80,14 +79,13 @@ class LoginPage extends React.Component {
                             <Text style={styles.text}>Password</Text>
                             <TextInput 
                             value={this.state.password} 
-                            
                             secureTextEntry={true}
                             onChangeText={text=>this.inputPW(text)}
                             style={{ height: 40, borderColor: 'gray', borderWidth: 1, borderRadius:9,padding:5, width:deviceWitdth*0.7 }}/>
                             <Text style={styles.message}>{this.state.message}</Text>
                             <View style={styles.signupBtn}>
                                 <TouchableOpacity style={styles.signUp} onPress={this.pressLogin} >
-                                    <Text style={styles.signupText}>LOG IN</Text>
+                                 <Text style={styles.signupText}>LOG IN</Text>
                                 </TouchableOpacity>
                                 <Text style={styles.text}>or</Text>
                             </View>

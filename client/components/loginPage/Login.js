@@ -11,7 +11,7 @@ class Login extends React.Component {
 //style={this.props.loginPageStatus === "logedIn" ? {display: "none"} : styles.container 
     render(){
         return(
-            <View style={styles.container }>
+            <View style = {this.props.loginPageStatus === "logedIn"? {display:'none'} :  styles.container }>
                 <Header />
                 <Bottom />
                 <SignupPage />

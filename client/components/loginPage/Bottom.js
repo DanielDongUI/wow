@@ -17,7 +17,7 @@ class Bottom extends React.Component {
             <View style={styles.container}>
                 <View title="Log In" style={styles.box}>
                     <TouchableOpacity style={styles.login} onPress={this.pressLogin}>  
-                    <Text style={styles.loginText}>LOG IN</Text>
+                    <Text style={styles.loginText}>LOG IN{this.props.loginPageStatus}</Text>
                     </TouchableOpacity> 
                 </View> 
                 <View title="Sign Up" style={styles.box}  >
