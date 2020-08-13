@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 class Discover extends React.Component {
 
     render(){
-        
+    
         return(
             <View style={this.props.currentPage==="Discover" ? styles.container : {display:'none'}}>
                 <ScrollView vertical={true} contentContainerStyle={{flexGrow: 1}}>
@@ -15,7 +15,14 @@ class Discover extends React.Component {
                         let user = this.props.userList.filter(user=>user.userId===item.userId)
                         console.log(user)
                         return (<View key = {index} style={styles.eventContainer}> 
+                                    <View style={styles.titleContainer}>
                                     <Text style={styles.title}>{item.eventTitle}</Text>
+                                    <Image
+                                            style={styles.starIcon}
+                                            source = {require('./icon/star.png')}
+                                    />
+                                    <Text style={styles.collectionCount} >{item.collectionCount}</Text>
+                                    </View>
                                     <Text style={styles.detail}>{item.eventDetail}</Text>
                                     <View style={styles.imgContainer}>
                                         <Image  
@@ -29,7 +36,7 @@ class Discover extends React.Component {
                                             source = {user[0].userImg}
                                         />
                                         <Text style={styles.userName}>{user[0].userName}</Text>
-                                        
+                                        <Text style={styles.time}>{item.timeFromRelease}</Text>
                                     </View>
                                 </View>)
                     })}
@@ -46,7 +53,8 @@ const deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
     container:{
         alignItems:'center',
-        backgroundColor: "#F5F5F5"
+        backgroundColor: "#F5F5F5",
+        height:deviceHeight*0.83,
 
     },
     eventWrapper: {
@@ -63,10 +71,30 @@ const styles = StyleSheet.create({
         paddingLeft:deviceWitdth*0.03,
         paddingRight:deviceWitdth*0.03
     },
+    titleContainer:{
+        flexDirection: 'row',
+        paddingTop: 6
+        //alignItems: 'center',
+    },
     title:{
         fontFamily:"Arial",
         fontSize: deviceWitdth*0.05,
-        padding:6,
+        alignSelf: 'flex-end',
+    },
+    starIcon:{
+        left: deviceWitdth*0.52,
+        width: deviceWitdth*0.06,
+        height: deviceWitdth*0.06,
+       // alignSelf: 'flex-end',
+
+    },
+    collectionCount:{
+        width: deviceWitdth*0.25,
+        //fontFamily:"Arial",
+        fontSize: deviceWitdth*0.04,
+        left: deviceWitdth*0.53,
+        color: "red",
+        alignSelf: 'center'
     },
     detail:{
         padding:6,
@@ -84,11 +112,10 @@ const styles = StyleSheet.create({
         borderColor: "#C0C0C0",
     },
     info:{
-        flexWrap : 'wrap',
-
+        flexDirection: 'row',
         width:deviceWitdth*0.9,
         height:deviceHeight*0.05,
-        justifyContent: 'center',
+        alignItems: 'center',
         padding:6
     },
     userImg:{
@@ -100,8 +127,17 @@ const styles = StyleSheet.create({
     userName:{
         width: deviceWitdth*0.3,
         fontFamily:"Arial",
+        //alignSelf:'center',
         fontSize: deviceWitdth*0.04,
-    }
+    },
+    time:{
+        width: deviceWitdth*0.25,
+        fontFamily:"Arial",
+        fontSize: deviceWitdth*0.04,
+        left: deviceWitdth*0.28,
+        //alignSelf: '',
+        color: "gray",
+    },
 
 
 }

@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
         borderColor: "#C0C0C0",
         padding: 5,
         zIndex:9
+        
     },
     logoContainer:{
         position: 'absolute',

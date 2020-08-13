@@ -8,8 +8,9 @@ const initialState ={
       time: "none", //none
       collectionCount:10,
       userId:"1",
-      eventImg: null,
-      releaseDate: "2020/08/12/16:56"
+      eventImg: require("../data/eventImg/1.jpg"),
+      releaseDate: "2020/08/12/16:56",
+      timeFromRelease: "3 mins ago",
     },
     {
       eventId :2,
@@ -19,8 +20,9 @@ const initialState ={
       time: "none", //none
       collectionCount:16,
       userId:"2",
-      eventImg: null,
-      releaseDate: "2020/08/11/1:24"
+      eventImg: require("../data/eventImg/2.jpg"),
+      releaseDate: "2020/08/11/1:24",
+      timeFromRelease: "4 hours ago",
     },
     {
       eventId :3,
@@ -31,7 +33,9 @@ const initialState ={
       collectionCount:100,
       userId:"1",
       eventImg: require("../data/eventImg/3.jpeg"),
-      releaseDate: "2020/08/12/10:04"
+      releaseDate: "2020/08/12/10:04",
+      timeFromRelease: "2 days ago",
+
     }
   ]
 }
