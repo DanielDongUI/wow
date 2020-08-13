@@ -2,19 +2,21 @@ const initialState ={
     user:[{
         userName: "dong784500",
         password: "Dzp784500",
-        userId: "000001",
+        userId: "1",
         email: "dong784500@hotmail.com",
         firstName: "Zhiping",
         lastName: "dong",
-        eventId: [1],
+        eventId: [1,3],
+        userImg: require("../data/userImg/1.jpeg"),
     },{
         userName: "yuanxinyang",
         password: "Dzp784500",
-        userId: "000002",
+        userId: "2",
         email: "yuanxinyang@hotmail.com",
         firstName: "Xinyang",
         lastName: "Yuan",
-        eventId: [2,3],
+        eventId: [2],
+        userImg: require("../data/userImg/2.jpg"),
     }
 ],
 }

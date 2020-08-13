@@ -1,5 +1,39 @@
 const initialState ={
-
+  eventList: [
+    {
+      eventId :1,
+      eventTitle: "一起看电影" ,
+      eventDetail: "最近新上映了一个电影叫 xxx， 没人陪我去看，想找个人一起看",
+      location: "none", // none
+      time: "none", //none
+      collectionCount:10,
+      userId:"1",
+      eventImg: null,
+      releaseDate: "2020/08/12/16:56"
+    },
+    {
+      eventId :2,
+      eventTitle: "一起吃夜宵" ,
+      eventDetail: "有木有人一起吃个夜宵，一起长胖一起快乐",
+      location: "none", // none
+      time: "none", //none
+      collectionCount:16,
+      userId:"2",
+      eventImg: null,
+      releaseDate: "2020/08/11/1:24"
+    },
+    {
+      eventId :3,
+      eventTitle: "一起来植树" ,
+      eventDetail: "多一点绿色，来一起植树",
+      location: "none", // none
+      time: "none", //none
+      collectionCount:100,
+      userId:"1",
+      eventImg: require("../data/eventImg/3.jpeg"),
+      releaseDate: "2020/08/12/10:04"
+    }
+  ]
 }
 
 

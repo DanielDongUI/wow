@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     },
     sampleUser:{
         position: 'absolute',
-        width : 139,
-        height:28,
+        width : deviceWitdth*0.25,
+        height:deviceWitdth*0.08,
         left:deviceWitdth*0.05,
         top: deviceHeight*0.78,
         backgroundColor:'rgba(251,195,145,0.5)',
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
     },
     userImg:{
         position: 'absolute',
-        width:28,
-        height:28,
+        width:deviceWitdth*0.08,
+        height:deviceWitdth*0.08,
         right: '79.86%',
         left:'0%',
         top: '0%',

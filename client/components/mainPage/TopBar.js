@@ -73,7 +73,9 @@ const styles = StyleSheet.create({
         left:0,
         width:deviceWitdth,
         height: deviceHeight*0.08,
-        backgroundColor:'rgba(251,195,145,0.3)',
+        backgroundColor:'#FAFAFA',
+        borderWidth:1,
+        borderColor: "#C0C0C0",
         padding: 5,
         zIndex:9
     },
