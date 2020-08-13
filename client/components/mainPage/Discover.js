@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 class Discover extends React.Component {
 
     render(){
-    
+
         return(
             <View style={this.props.currentPage==="Discover" ? styles.container : {display:'none'}}>
                 <ScrollView vertical={true} contentContainerStyle={{flexGrow: 1}}>

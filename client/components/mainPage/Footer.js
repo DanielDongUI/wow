@@ -53,7 +53,7 @@ class Footer extends React.Component {
                 <View style={styles.box}>
                     <TouchableOpacity style={styles.icon} onPress={this.pressCreate}>  
                         <Image
-                            style={styles.logo}
+                            style={styles.plus}
                             source = {require('./icon/plus.png')}
                         /> 
                     </TouchableOpacity>
@@ -106,15 +106,23 @@ const styles = StyleSheet.create({
     },
     box:{
         width:'20%',
-        padding:5,
+        //padding:5,
         alignItems:"center",
         //justifyContent:'center',
     },
     logo:{
         width: deviceWitdth*0.07,
         height: deviceWitdth*0.07,
-        top: deviceHeight*0.003,
+        top: deviceHeight*0.01,
     },
+    plus:{
+        width: deviceWitdth*0.11,
+        height: deviceWitdth*0.11,
+        top: 0,
+        alignSelf: 'flex-start'
+        
+        //resizeMode: "contain"
+    }
 }
 )
 const mapStatetoProps = state =>{
