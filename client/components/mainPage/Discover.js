@@ -1,10 +1,15 @@
 import React from 'react';
-import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions, ScrollView} from 'react-native'
+import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions,TouchableOpacity, ScrollView} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { openEvent } from "../../actions/eventActions"
 
 class Discover extends React.Component {
 
+    openEvent=(event)=>{
+        //console.log(event)
+        this.props.openEvent(event)
+    }
     render(){
 
         return(
@@ -13,8 +18,8 @@ class Discover extends React.Component {
                 <View styles={styles.eventWrapper}>
                     {this.props.eventList.map((item,index)=>{
                         let user = this.props.userList.filter(user=>user.userId===item.userId)
-                        console.log(user)
-                        return (<View key = {index} style={styles.eventContainer}> 
+                        //console.log(user)
+                        return (<TouchableOpacity key = {index} style={styles.eventContainer} onPress = {()=>this.openEvent(item)}> 
                                     <View style={styles.titleContainer}>
                                     <Text style={styles.title}>{item.eventTitle}</Text>
                                     <Image
@@ -38,7 +43,7 @@ class Discover extends React.Component {
                                         <Text style={styles.userName}>{user[0].userName}</Text>
                                         <Text style={styles.time}>{item.timeFromRelease}</Text>
                                     </View>
-                                </View>)
+                                </TouchableOpacity>)
                     })}
                 </View>  
                 </ScrollView>           
@@ -154,7 +159,7 @@ const mapStatetoProps = state =>{
 
 const mapDispatchToProps = dispatch =>
         bindActionCreators({
-
+            openEvent
         },dispatch)
     
 

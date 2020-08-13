@@ -9,6 +9,7 @@ import Collection from './Collection';
 import Create from './Create';
 import Search from './Search'
 import Profile from './Profile';
+import EventDetailPage from './event/EventDetailPage'
 
 
 
@@ -27,6 +28,7 @@ class MainPage extends React.Component {
                 <Search />
                 <Profile />
                 <Footer />
+                <EventDetailPage />
             </View>
         )
     }

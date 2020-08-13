@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         top: -deviceHeight*0.03,
         backgroundColor: 'rgba(251,195,145,0.4)',
         alignItems: 'center',
-        zIndex:8,
+        
     },
     innerWindows:{
         width:deviceWitdth*0.8,

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Router, Scene, Actions } from 'react-native-router-flux'
 
-
+//rgb 255 163 81
 class Main extends React.Component {
 
     render(){

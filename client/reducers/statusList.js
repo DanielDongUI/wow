@@ -6,6 +6,7 @@ const initialState ={
     filterStatus: "close", //close
     settingStatus:"close", //close
     currentUser: null, //null
+    currentEvent: null,
 }
 
 
@@ -95,7 +96,18 @@ const statusList = (state = initialState, action) =>{
             return {
                 ...state,
                 settingStatus : 'close'
-            }     
+            }   
+        //Discover
+        case 'OPEN_EVENT' :
+            return {
+                ...state,
+                currentEvent: action.payload
+            }
+        case 'CLOSE_EVENT' :
+            return {
+                ...state,
+                currentEvent : null
+            }      
         default:
             return state
     }
