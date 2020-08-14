@@ -84,10 +84,12 @@ const styles = StyleSheet.create({
     title:{
         fontFamily:"Arial",
         fontSize: deviceWitdth*0.05,
+        width: deviceWitdth*0.8,
+        //backgroundColor:"black",
         alignSelf: 'flex-end',
     },
     starIcon:{
-        left: deviceWitdth*0.52,
+        left: 0,
         width: deviceWitdth*0.06,
         height: deviceWitdth*0.06,
        // alignSelf: 'flex-end',
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
         width: deviceWitdth*0.25,
         //fontFamily:"Arial",
         fontSize: deviceWitdth*0.04,
-        left: deviceWitdth*0.53,
+        left: deviceWitdth*0.01,
         color: "red",
         alignSelf: 'center'
     },

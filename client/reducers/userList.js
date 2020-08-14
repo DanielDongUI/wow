@@ -17,6 +17,16 @@ const initialState ={
         lastName: "Yuan",
         eventId: [2],
         userImg: require("../data/userImg/2.jpg"),
+    },
+    {
+        userName: "半藏森林",
+        password: "Dzp784500",
+        userId: "3",
+        email: "banzangsenlin@hotmail.com",
+        firstName: "senlin",
+        lastName: "banzang",
+        eventId: [4],
+        userImg: require("../data/userImg/3.jpg"),
     }
 ],
 }

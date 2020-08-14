@@ -1,14 +1,24 @@
 import React from 'react';
-import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions, TouchableOpacity} from 'react-native'
+import { View , Text, StyleSheet, StatusBar, Image, Modal, Dimensions, TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { closeEvent } from "../../../actions/eventActions"
+import { closeEvent } from "../../../actions/eventActions";
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 class EventDetailPage extends React.Component {
-
-
+    state = {
+        imgViewer: false,
+        imgSrc: [],
+    }
     closeEvent =()=>{
         this.props.closeEvent()
+    }
+    pressImg =(imgSrc)=>{
+        
+        this.setState({imgViewer:true, imgSrc})
+    }
+    closeImg = ()=>{
+        this.setState({imgViewer:false, imgSrc:""})
     }
 
     conditionalRender = ()=>{
@@ -33,18 +43,26 @@ class EventDetailPage extends React.Component {
                             />
                             <Text style={styles.collectionCount} >{item.collectionCount}</Text>
                         </View>
+                            <View style={styles.locationContainer}>
+                            <Text style={styles.at}>at</Text>
+                            <Text style={styles.location}>{item.location}</Text>
+                            </View>
+                            <Image 
+                                style={styles.line}
+                                source={require('../icon/line1.png')}
+                            />
                             <Text style={styles.detail}>{item.eventDetail}</Text>
-                            <View style={styles.imgContainer}>
+                            <TouchableOpacity style={styles.imgContainer} onPress={()=>this.pressImg(item.eventImgList)}>
                                 <Image  
                                     style={item.eventImg=== null ? {display : 'none'} : styles.eventImg }
                                     source = {item.eventImg}
                                 />
-                        </View>
-                        <View style={styles.info}> 
-                            <Image
-                                style={styles.userImg}
-                                source = {user.userImg}
-                            />
+                            </TouchableOpacity>
+                            <View style={styles.info}> 
+                                <Image
+                                    style={styles.userImg}
+                                    source = {user.userImg}
+                                />
                             <Text style={styles.userName}>{user.userName}</Text>
                             <Text style={styles.time}>{item.timeFromRelease}</Text>
                         </View>
@@ -62,6 +80,9 @@ class EventDetailPage extends React.Component {
 
         return(
             <View style={this.props.currentEvent !== null ? styles.container : {display:'none'}}>
+                <Modal visible={this.state.imgViewer} transparent={this.state.imgViewer} >
+                    <ImageViewer imageUrls={this.state.imgSrc}  onSwipeDown={this.closeImg} enableSwipeDown={true} enableImageZoom={true} />
+                </Modal>
                 {this.conditionalRender()}
             </View>
         )
@@ -74,7 +95,7 @@ const deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
     container:{
         top: -deviceHeight*0.9,
-        zIndex:10
+        zIndex:20
     },
     innerContainer:{
         width:deviceWitdth,
@@ -120,26 +141,44 @@ const styles = StyleSheet.create({
     title:{
         fontFamily:"Arial",
         left:deviceWitdth*0.03,
-        fontSize: deviceWitdth*0.05,
+        //backgroundColor:"black",
+        fontSize: deviceWitdth*0.06,
+        width:deviceWitdth*0.7,
         alignSelf: 'flex-end',
     },
     starIcon:{
-        left: deviceWitdth*0.52,
+        left: deviceWitdth*0.02,
         width: deviceWitdth*0.06,
         height: deviceWitdth*0.06,
-       // alignSelf: 'flex-end',
+        alignSelf: 'center',
 
     },
     collectionCount:{
         width: deviceWitdth*0.25,
+        height: deviceWitdth*0.06,
         //fontFamily:"Arial",
         fontSize: deviceWitdth*0.04,
-        left: deviceWitdth*0.53,
+        left: deviceWitdth*0.03,
         color: "red",
+        alignSelf: 'flex-end'
+    },
+    line:{
+        width: deviceWitdth*0.89,
+        height: deviceHeight*0.01,
+        //backgroundColor:"lightgray",
         alignSelf: 'center'
+        
     },
     detail:{
         padding:6,
+        fontFamily:"Arial",
+        width:deviceWitdth*0.88,
+        left:deviceWitdth*0.01,
+        //borderTopColor: "lightgray",
+        //borderColor: "white",
+        //borderWidth: deviceWitdth*0.001,
+
+        
     },
     imgContainer:{
         marginTop:10,
@@ -185,6 +224,23 @@ const styles = StyleSheet.create({
         //alignSelf: '',
         color: "gray",
     },
+    locationContainer:{
+        flexDirection: 'row',
+        alignItems: "center"
+    },
+    at:{
+        fontFamily:"Arial",
+        left: deviceWitdth*0.03,
+        fontSize: deviceWitdth*0.04,
+        color: "gray"
+    },
+    location:{
+        fontFamily:"Arial",
+        fontWeight:"bold",
+        fontSize: deviceWitdth*0.04,
+        left: deviceWitdth*0.05,
+        color:"rgb(255,163,81)",
+    }
 }
 )
 const mapStatetoProps = state =>{
