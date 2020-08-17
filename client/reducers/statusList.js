@@ -5,7 +5,7 @@ const initialState ={
     createPageStatus: "close", //close
     filterStatus: "close", //close
     settingStatus:"close", //close
-    currentUser: null, //null
+    currentUser: "1", //null
     currentEvent: null,
 }
 

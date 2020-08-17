@@ -1,9 +1,10 @@
 import React from 'react';
-import { View , Text, StyleSheet, StatusBar, Image, Modal, Dimensions, TouchableOpacity} from 'react-native'
+import { View , Text, StyleSheet, ScrollView, Image, Modal, Dimensions, TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { closeEvent } from "../../../actions/eventActions";
 import ImageViewer from 'react-native-image-zoom-viewer';
+import { unLike, like } from "../../../actions/eventActions"
 
 class EventDetailPage extends React.Component {
     state = {
@@ -20,12 +21,50 @@ class EventDetailPage extends React.Component {
     closeImg = ()=>{
         this.setState({imgViewer:false, imgSrc:""})
     }
+    pressCollection = (user, eventId) => {
+        let contain = this.checkContain(user,eventId)
+        
+        if (contain){
+
+        }
+
+    }
+    checkCollection = (user, eventId,current) => {
+        let contain = this.checkContain(user,eventId)
+
+        if(contain){
+            if(current===false){
+                return {display: 'none'}
+            }else{
+                return styles.collectionContainer
+            }
+        }else{
+            if(current===false){
+                return styles.collectionContainer
+            }else{
+                return  {display: 'none'}
+            }
+        }
+    }
+    checkContain = (user, eventId) =>{
+        let contain = false;
+        user.collection.forEach((item)=>{
+            if (item === eventId){
+                contain = true;
+            }
+        })
+        return contain
+    }
 
     conditionalRender = ()=>{
         if (this.props.currentEvent !== null){
             let user = this.props.userList.filter(user=>user.userId===this.props.currentEvent.userId)[0]
             //console.log(this.props.currentEvent )
             let item = this.props.currentEvent 
+            let hasCollection = false
+            let currentUser = this.props.userList.filter(user=>user.userId===this.props.currentUser)[0]
+
+
             return (
                 <View style={styles.innerContainer} >
                     <TouchableOpacity onPress={this.closeEvent}>
@@ -34,14 +73,29 @@ class EventDetailPage extends React.Component {
                             source = {require('../icon/back.png')}
                         />
                     </TouchableOpacity>
-                    <View style={styles.innerWindows}>
+                    <View  style={styles.innerWindows}>
+                    <ScrollView vertical={true} contentContainerStyle={{flexGrow: 1}}>
                         <View style={styles.titleContainer}>
                             <Text style={styles.title}>{item.eventTitle}</Text>
                             <Image
-                                style={styles.starIcon}
-                                source = {require('../icon/star.png')}
-                            />
-                            <Text style={styles.collectionCount} >{item.collectionCount}</Text>
+                                    style={styles.starIcon}
+                                    source = {require('../icon/star.png')}
+                                />
+                                <Text style={styles.collectionCount} >{item.collectionCount}</Text>
+                            {/* <TouchableOpacity style={()=>this.checkCollection(currentUser,item.eventId,false)} onPress={()=>this.pressCollection(currentUser,item.eventId)}>
+                                <Image
+                                    style={styles.starIcon}
+                                    source = {require('../icon/star.png')}
+                                />
+                                <Text style={styles.collectionCount} >{item.collectionCount}</Text>
+                            </TouchableOpacity>
+                             <TouchableOpacity  style={()=>this.checkCollection(currentUser,item.eventId,true)} onPress={()=>this.pressCollection(currentUser,item.eventId)}>
+                                <Image
+                                    style={styles.starIcon}
+                                    source = {require('../icon/starc.png')}
+                                />
+                                <Text style={styles.collectionCountC} >{item.collectionCount}</Text>
+                            </TouchableOpacity>  */}
                         </View>
                             <View style={styles.locationContainer}>
                             <Text style={styles.at}>at</Text>
@@ -66,6 +120,7 @@ class EventDetailPage extends React.Component {
                             <Text style={styles.userName}>{user.userName}</Text>
                             <Text style={styles.time}>{item.timeFromRelease}</Text>
                         </View>
+                    </ScrollView>
                     </View>
                 </View>
             )
@@ -95,14 +150,17 @@ const deviceHeight = Dimensions.get('window').height
 const styles = StyleSheet.create({
     container:{
         top: -deviceHeight*0.9,
-        zIndex:20
+        width:deviceWitdth,
+        height: deviceHeight,
+        zIndex:10,
+    
     },
     innerContainer:{
         width:deviceWitdth,
-        height: deviceHeight*1.3,
+        height: deviceHeight*1.1,
         top: -deviceHeight*0.03,
         backgroundColor: 'rgba(165,165,165,0.8)',
-        zIndex:11,
+        
     },
     backImg:{
         top: deviceHeight*0.058,
@@ -146,6 +204,14 @@ const styles = StyleSheet.create({
         width:deviceWitdth*0.7,
         alignSelf: 'flex-end',
     },
+    collectionContainer:{
+        backgroundColor:"black",
+        width: deviceWitdth*0.26,
+        height: deviceWitdth*0.06,
+        flexDirection: 'row',
+        alignItems:'center',
+        left: deviceWitdth*0.02,
+    },
     starIcon:{
         left: deviceWitdth*0.02,
         width: deviceWitdth*0.06,
@@ -154,6 +220,15 @@ const styles = StyleSheet.create({
 
     },
     collectionCount:{
+        width: deviceWitdth*0.25,
+        height: deviceWitdth*0.06,
+        //fontFamily:"Arial",
+        fontSize: deviceWitdth*0.04,
+        left: deviceWitdth*0.03,
+        color: "black",
+        alignSelf: 'flex-end'
+    },
+    collectionCountC:{
         width: deviceWitdth*0.25,
         height: deviceWitdth*0.06,
         //fontFamily:"Arial",
@@ -249,7 +324,8 @@ const mapStatetoProps = state =>{
         mainPageStatus : state.statusList.mainPageStatus,
         currentPage : state.statusList.currentPage,
         currentEvent : state.statusList.currentEvent,
-        userList : state.userList.user
+        userList : state.userList.user,
+        currentUser: state.statusList.currentUser
 
     }
 }

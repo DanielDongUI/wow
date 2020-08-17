@@ -1,9 +1,9 @@
 const initialState ={
   eventList: [
     {
-      eventId :1,
+      eventId :"1",
       eventTitle: "一起看电影" ,
-      eventDetail: "最近新上映了一个电影叫 xxx， 没人陪我去看，想找个人一起看",
+      eventDetail: "最近新上映了一个电影叫流浪地球， 没人陪我去看，想找个人一起看",
       //location: "none", // none
       time: "none", //none
       collectionCount:10,
@@ -41,7 +41,7 @@ const initialState ={
       location: "中关村万达国际影院",
     },
     {
-      eventId :2,
+      eventId :"2",
       eventTitle: "一起吃夜宵" ,
       eventDetail: "有木有人一起吃个夜宵，一起长胖一起快乐",
       //location: "none", // none
@@ -71,7 +71,7 @@ const initialState ={
       location: "羊大爷铜锅涮肉 清华店"
     },
     {
-      eventId :3,
+      eventId :"3",
       eventTitle: "一起来植树" ,
       eventDetail: "多一点绿色，来一起植树",
       //location: "none", // none
@@ -96,10 +96,9 @@ const initialState ={
       location: "北京动物园",
     },
     {
-      eventId :4,
+      eventId :"4",
       eventTitle: "哥哥要不要看茶艺" ,
       eventDetail: "吃点奶油，喝点绿茶",
-      //location: "none", // none
       time: "none", //none
       collectionCount:25,
       userId:"3",
@@ -134,10 +133,15 @@ const eventList = (state = initialState, action) =>{
   //console.log("action.type: "+ action.type)
     switch (action.type) {
         
-        case 'REMOVE_FROM_MYLIST':
+        case 'ADD_COLLECTION_COUNT':
             return {
-              mylist: [...state.mylist.filter(item => item !== action.payload)],
-              recommendations: [...state.recommendations, action.payload]
+              ...state,
+              // eventList: [...state.eventList.map(item => {
+              //   if(item.eventId===action.payload[0]){
+              //     let array = item.
+              //   }
+              //   return item
+              // })]
             }
         case 'ADD_TO_MYLIST' :
             return {
