@@ -2,7 +2,7 @@ import React from 'react';
 import { View , Text, StyleSheet, StatusBar, Image, Dimensions,TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { pressDiscover, pressCollection, pressSearch, pressProfile, openCreate } from '../../actions/mainPageActions'
+import { pressDiscover, pressCollection, pressMessage, pressProfile, openCreate } from '../../actions/mainPageActions'
 
 class Footer extends React.Component {
     pressDiscover=()=>{
@@ -14,8 +14,8 @@ class Footer extends React.Component {
     pressCreate=()=>{
         this.props.openCreate()
     } 
-    pressSearch=()=>{
-        this.props.pressSearch()
+    pressMessage=()=>{
+        this.props.pressMessage()
     }
     pressProfile=()=>{
         this.props.pressProfile()
@@ -59,15 +59,15 @@ class Footer extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.box}>
-                    <TouchableOpacity style={this.props.currentPage ==="Search" ? {display : 'none'} : styles.icon} onPress={this.pressSearch}>  
+                    <TouchableOpacity style={this.props.currentPage ==="Message" ? {display : 'none'} : styles.icon} onPress={this.pressMessage}>  
                         <Image
                             style={styles.logo}
-                            source = {require('./icon/search.png')}
+                            source = {require('./icon/message.png')}
                         /> 
                     </TouchableOpacity>
                     <Image
-                            style={this.props.currentPage==="Search" ? styles.logo : {display : 'none'}}
-                            source = {require('./icon/searchc.png')}
+                            style={this.props.currentPage==="Message" ? styles.logo : {display : 'none'}}
+                            source = {require('./icon/messagec.png')}
                         /> 
                 </View>
                 <View style={styles.box}>
@@ -137,7 +137,7 @@ const mapDispatchToProps = dispatch =>
         bindActionCreators({
             pressDiscover,
             pressCollection,
-            pressSearch,
+            pressMessage,
             pressProfile,
             openCreate,
         },dispatch)

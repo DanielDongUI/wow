@@ -7,7 +7,7 @@ import Footer from './Footer';
 import Discover from './Discover';
 import Collection from './Collection';
 import Create from './Create';
-import Search from './Search'
+import Search from './Message'
 import Profile from './Profile';
 import EventDetailPage from './event/EventDetailPage'
 

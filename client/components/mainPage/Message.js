@@ -3,12 +3,12 @@ import { View , Text, StyleSheet, StatusBar, Image, Buttom, Dimensions} from 're
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-class Search extends React.Component {
+class Message extends React.Component {
 
     render(){
         return(
-            <View style={this.props.currentPage ==="Search" ? styles.container : {display:'none'}}>
-                <Text>Search</Text>
+            <View style={this.props.currentPage ==="Message" ? styles.container : {display:'none'}}>
+                <Text>Message</Text>
             </View>
         )
     }
@@ -38,4 +38,4 @@ const mapDispatchToProps = dispatch =>
     
 
 
-export default connect(mapStatetoProps,mapDispatchToProps)(Search);
+export default connect(mapStatetoProps,mapDispatchToProps)(Message);

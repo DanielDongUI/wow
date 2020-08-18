@@ -6,8 +6,8 @@ export const pressCollection = ()=> ({
     type: 'PRESS_COLLECTION',
     payload: ""
 })
-export const pressSearch = ()=> ({
-    type: 'PRESS_SEARCH',
+export const pressMessage = ()=> ({
+    type: 'PRESS_MESSAGE',
     payload: ""
 })
 export const pressProfile = ()=> ({

@@ -61,10 +61,10 @@ const statusList = (state = initialState, action) =>{
               ...state,
               currentPage: "Collection"
             }
-        case 'PRESS_SEARCH' :
+        case 'PRESS_MESSAGE' :
             return {
               ...state,
-              currentPage: "Search"
+              currentPage: "Message"
             }
         case 'PRESS_PROFILE' :
             return {
